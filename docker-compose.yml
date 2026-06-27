@@ -1,0 +1,22 @@
+services:
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+  ragchat:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - RAGCHAT_OLLAMA_BASE_URL=http://ollama:11434
+    depends_on:
+      - ollama
+    volumes:
+      - chroma_data:/app/data/chroma
+
+volumes:
+  ollama_data:
+  chroma_data:

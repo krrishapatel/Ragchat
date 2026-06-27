@@ -1,4 +1,4 @@
-# ragchat
+# Ragchat
 
 Chat with your documents using RAG. Upload PDFs, ask questions, get cited answers.
 
